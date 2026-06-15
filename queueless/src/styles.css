@@ -1,0 +1,381 @@
+/* ── Apple Minimal Design System ────────────────── */
+/* Palette: #1D1D1F · #8E8E93 · #F2F2F7 · #FAFAFA · #30D158 · #FF3B30 */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --black:   #1D1D1F;
+  --gray:    #8E8E93;
+  --gray-lt: #C7C7CC;
+  --fill:    #F2F2F7;
+  --bg:      #FAFAFA;
+  --white:   #FFFFFF;
+  --green:   #30D158;
+  --blue:    #007AFF;
+  --red:     #FF3B30;
+  --border:  #E5E5EA;
+  --radius:  12px;
+  --radius-sm: 8px;
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--black);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ── Auth Pages ─────────────────────────────────── */
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+}
+
+.auth-card {
+  background: var(--white);
+  border-radius: 18px;
+  padding: 2.5rem 2.2rem;
+  width: 100%;
+  max-width: 380px;
+  border: 0.5px solid var(--border);
+}
+
+.auth-card h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  margin-bottom: 0.35rem;
+  color: var(--black);
+}
+
+.auth-subtitle {
+  font-size: 0.88rem;
+  color: var(--gray);
+  margin-bottom: 1.8rem;
+}
+
+.auth-link {
+  margin-top: 1.2rem;
+  font-size: 0.875rem;
+  color: var(--gray);
+  text-align: center;
+}
+
+/* ── Form Shared ────────────────────────────────── */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--black);
+  letter-spacing: 0.01em;
+}
+
+.form-group input {
+  padding: 0.7rem 0.9rem;
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  font-family: inherit;
+  background: var(--fill);
+  color: var(--black);
+  outline: none;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.form-group input::placeholder { color: var(--gray-lt); }
+
+.form-group input:focus {
+  border-color: var(--blue);
+  background: var(--white);
+}
+
+.error-msg {
+  background: #FFF2F1;
+  color: var(--red);
+  border: 0.5px solid #FFCDD0;
+  border-radius: var(--radius-sm);
+  padding: 0.5rem 0.85rem;
+  font-size: 0.84rem;
+  margin-bottom: 0.9rem;
+}
+
+/* ── Buttons ────────────────────────────────────── */
+.btn-primary {
+  display: block;
+  width: 100%;
+  padding: 0.72rem;
+  background: var(--black);
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: opacity 0.15s;
+  text-align: center;
+  letter-spacing: -0.1px;
+}
+
+.btn-primary:hover:not(:disabled) { opacity: 0.82; }
+.btn-primary:disabled { opacity: 0.35; cursor: not-allowed; }
+
+.btn-outline {
+  padding: 0.42rem 1rem;
+  background: var(--fill);
+  color: var(--black);
+  border: 0.5px solid var(--border);
+  border-radius: 20px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.btn-outline:hover { background: var(--border); }
+
+.btn-danger {
+  padding: 0.38rem 0.85rem;
+  background: #FFF2F1;
+  color: var(--red);
+  border: 0.5px solid #FFCDD0;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.btn-danger:hover { background: #FFE0DE; }
+
+.btn-sm { padding: 0.35rem 0.8rem; font-size: 0.8rem; }
+
+/* ── Dashboard Layout ───────────────────────────── */
+.dashboard-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+}
+
+.dashboard-header {
+  background: rgba(250,250,250,0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 0.85rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 0.5px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.dashboard-header h1 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+  color: var(--black);
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.header-email {
+  font-size: 0.82rem;
+  color: var(--gray);
+}
+
+.dashboard-content {
+  flex: 1;
+  padding: 2rem;
+  max-width: 960px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.dashboard-content h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+  margin-bottom: 1rem;
+  color: var(--black);
+}
+
+/* ── Queue Table (Admin) ────────────────────────── */
+.queue-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 0.5px solid var(--border);
+}
+
+.queue-table th,
+.queue-table td {
+  padding: 0.8rem 1rem;
+  text-align: left;
+  font-size: 0.875rem;
+}
+
+.queue-table th {
+  background: var(--fill);
+  font-weight: 500;
+  font-size: 0.78rem;
+  color: var(--gray);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  border-bottom: 0.5px solid var(--border);
+}
+
+.queue-table tr:not(:last-child) td {
+  border-bottom: 0.5px solid var(--fill);
+}
+
+.action-btns { display: flex; gap: 0.5rem; }
+
+/* ── Status Badges ──────────────────────────────── */
+.status-badge {
+  display: inline-block;
+  padding: 0.22rem 0.7rem;
+  border-radius: 20px;
+  font-size: 0.76rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.status-waiting { background: #FFF3E0; color: #B25000; }
+.status-called  { background: #E8FAF0; color: #1A7A3E; }
+.status-done    { background: var(--fill); color: var(--gray); }
+
+/* ── Cards ──────────────────────────────────────── */
+.join-card, .tracker-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 2rem;
+  max-width: 440px;
+  border: 0.5px solid var(--border);
+}
+
+.joined-msg {
+  text-align: center;
+  padding: 3rem 0;
+}
+
+.joined-msg h2 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: -0.4px;
+  margin-bottom: 0.4rem;
+}
+
+.joined-msg p {
+  font-size: 0.9rem;
+  color: var(--gray);
+  margin-bottom: 1.5rem;
+}
+
+/* ── Tracker ────────────────────────────────────── */
+.tracker-label {
+  font-size: 0.75rem;
+  color: var(--gray);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.25rem;
+}
+
+.tracker-position {
+  font-size: 5.5rem;
+  font-weight: 300;
+  color: var(--black);
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.tracker-name {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.4rem;
+  color: var(--black);
+}
+
+.tracker-status, .tracker-total {
+  font-size: 0.875rem;
+  color: var(--gray);
+  margin-top: 0.3rem;
+}
+
+/* ── Empty State ────────────────────────────────── */
+.empty-state {
+  color: var(--gray);
+  font-size: 0.9rem;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+/* ── Admin Metrics Row ──────────────────────────── */
+.metrics-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.metric-card {
+  background: var(--white);
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.2rem 1.4rem;
+}
+
+.metric-card .metric-label {
+  font-size: 0.75rem;
+  color: var(--gray);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.35rem;
+}
+
+.metric-card .metric-value {
+  font-size: 1.8rem;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  color: var(--black);
+}
+
+.metric-card .metric-sub {
+  font-size: 0.78rem;
+  color: var(--green);
+  margin-top: 0.2rem;
+}
+
+/* ── Responsive ─────────────────────────────────── */
+@media (max-width: 600px) {
+  .dashboard-header { padding: 0.75rem 1rem; }
+  .dashboard-content { padding: 1rem; }
+  .auth-card { margin: 1rem; }
+  .metrics-row { grid-template-columns: 1fr 1fr; }
+}
